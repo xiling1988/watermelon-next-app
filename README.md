@@ -16,21 +16,33 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Project Notes
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Specifications:
 
-## Learn More
+A separate, lightweight Front-end repo (your own)
+Build a simple React app that shows an Orders table and basic CRUD using dummy data (no backend required).
 
-To learn more about Next.js, take a look at the following resources:
+Minimum features:
+Orders table (id, customer, location, status, total, createdAt).
+Create a new order; view, update, and delete existing orders.
+One status filter (e.g., All/Pending/Active/Out For Delivery/Delivered/Canceled).
+One search bar (search by order id or customer name is fine).
+Use state management for app/UI data.
+This is absolutely doable with dummy data—no API needed.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Actions taken:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Created table with specified columns - partially reused previously owned/developed components for speed.
 
-## Deploy on Vercel
+State/Logic: used local state and hooks for state management as scope of project was small and didnt need context or state management libraries like Redux...
+Had preexisting logic that utilized useMemo for repeating searches and unnecessary renders.
+Used useRef for generating new order id numbers (adds 1)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Clicking on header cells sorts columns in ascending/decending order.
+Searches search through mock data's ids and cusomer names.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+CRUD Operations:
+Creating a new order can be done after clicking the New Order button and submitting the form.
+Editing and deleting can be done through the action buttons at the end of each row.
+Clicking delete triggers a browser confirm banner before effectively deleting.
